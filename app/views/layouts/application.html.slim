@@ -8,4 +8,9 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
+    div
+      - ('A'..'Z').each do |letter|
+        = link_to_unless_current letter, contacts_path(letter: letter), class: 'btn'
+      = link_to 'All', contacts_path, class: 'btn'
+  
     == yield
