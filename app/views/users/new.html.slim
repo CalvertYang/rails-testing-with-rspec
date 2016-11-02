@@ -9,18 +9,21 @@ h1 New User
           li = message
 
   div class="form-inputs"
-    div class="field"
+    div class="form-group"
       = f.label :email
+      br
       = f.text_field :email
-    div id="password"
+    div class="form-group" id="password"
       = f.label :password
+      br
       = f.password_field :password
-    div id="password_confirmation"
+    div class="form-group" id="password_confirmation"
       = f.label :password_confirmation
+      br
       = f.password_field :password_confirmation
-    div
+    div class="form-group"
       = f.label :admin do
-        = f.check_box :admin
+        => f.check_box :admin
         | Administrator?
       end
 

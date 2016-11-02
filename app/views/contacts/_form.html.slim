@@ -6,18 +6,23 @@
         - @contact.errors.full_messages.each do |message|
           li = message
 
-  div class="field"
-    = f.label :firstname
-    = f.text_field :firstname
-  div class="field"
-    = f.label :lastname
-    = f.text_field :lastname
-  div class="field"
-    = f.label :email
-    = f.text_field :email
-  = f.fields_for :phones do |builder|
-    div class="field"
-      = builder.hidden_field :phone_type
-      = builder.label :phone, builder.object.phone_type
-      = builder.text_field :phone
-  div class="actions" = f.submit
+  div class="form-inputs"
+    div class="form-group"
+      = f.label :firstname
+      br
+      = f.text_field :firstname
+    div class="form-group"
+      = f.label :lastname
+      br
+      = f.text_field :lastname
+    div class="form-group"
+      = f.label :email
+      br
+      = f.text_field :email
+    = f.fields_for :phones do |builder|
+      div class="form-group"
+        = builder.hidden_field :phone_type
+        = builder.label :phone, "#{builder.object.phone_type.capitalize} phone"
+        br
+        = builder.text_field :phone
+  div class="form-actions" = f.submit nil, class: 'btn btn-primary'
