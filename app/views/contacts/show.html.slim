@@ -4,6 +4,15 @@ h1 = @contact.name
 
 p = @contact.email
 
+- unless @contact.phones.empty?
+  h2 Phones
+  
+  ul
+    - @contact.phones.each do |phone|
+      li
+        = phone.phone_type
+        = phone.phone
+
 div
   = link_to 'Edit', edit_contact_path(@contact)
   '|

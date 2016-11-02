@@ -20,6 +20,10 @@ class ContactsController < ApplicationController
   # GET /contacts/new
   def new
     @contact = Contact.new
+
+    %w(home office mobile).each do |phone|
+      @contact.phones.build(phone_type: phone)
+    end
   end
 
   # GET /contacts/1/edit
@@ -74,6 +78,7 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.fetch(:contact, {}).permit(:firstname, :lastname, :email)
+      params.fetch(:contact, {}).permit(:firstname, :lastname, :email,
+        phones_attributes: [:id, :phone, :phone_type])
     end
 end
