@@ -1,5 +1,5 @@
 class Contact < ApplicationRecord
-  has_many :phones, inverse_of: :contact
+  has_many :phones, dependent: :destroy, inverse_of: :contact
   accepts_nested_attributes_for :phones
 
   validates :firstname, presence: true

@@ -43,6 +43,9 @@ group :development, :test do
   # rspec-rails is a testing framework for Rails 3+.
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
 
+  # Extracting `assigns` and `assert_template` from ActionDispatch.
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.1'
+
   # factory_girl_rails provides integration between factory_girl and rails 3
   gem 'factory_girl_rails', '~> 4.7'
 end
