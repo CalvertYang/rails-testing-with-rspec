@@ -18,6 +18,11 @@ h1 New User
     div id="password_confirmation"
       = f.label :password_confirmation
       = f.password_field :password_confirmation
+    div
+      = f.label :admin do
+        = f.check_box :admin
+        | Administrator?
+      end
 
   div class="form-actions"
     = f.submit 'Create User', class: 'btn btn-primary'

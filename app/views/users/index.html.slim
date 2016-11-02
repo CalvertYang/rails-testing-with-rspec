@@ -3,9 +3,12 @@ h1 Users
 table
   tr
     th Email
+    th Admin?
   - @users.each do |user|
     tr
       td = user.email
+      td = user.admin?
 
-div
-  = link_to 'New User', new_user_path
+- if administrator?
+  div
+    = link_to 'New User', new_user_path

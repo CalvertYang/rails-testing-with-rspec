@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate
+  before_action :can_administer?, except: [:index]
 
   def index
     @users = User.all
@@ -22,6 +23,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.fetch(:user, {}).permit(:email, :password, :password_confirmation)
+      params[:user].delete :admin unless current_user.try(:admin?)
+      params.fetch(:user, {}).permit(:email, :password, :password_confirmation, :admin)
     end
 end
