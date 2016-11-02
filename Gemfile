@@ -39,6 +39,12 @@ group :development, :test do
 
   # Provides the generator settings required for Rails 3 and 4 to use Slim
   gem 'slim-rails', '~> 3.1', '>= 3.1.1'
+
+  # rspec-rails is a testing framework for Rails 3+.
+  gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
+
+  # factory_girl_rails provides integration between factory_girl and rails 3
+  gem 'factory_girl_rails', '~> 4.7'
 end
 
 group :development do
@@ -54,6 +60,23 @@ group :development do
 
   # Supporting gem for Rails Panel (Google Chrome extension for Rails development)
   gem 'meta_request', '~> 0.4.0'
+end
+
+group :test do
+  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+  gem 'faker', '~> 1.6', '>= 1.6.6'
+
+  # Capybara is an integration testing tool for rack based web applications. It simulates how a user would interact with a website
+  gem 'capybara', '~> 2.10', '>= 2.10.1'
+
+  # Strategies for cleaning databases. Can be used to ensure a clean state for testing.
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
+
+  # Launchy is helper class for launching cross-platform applications in a fire and forget manner.
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
+
+  # WebDriver is a tool for writing automated tests of websites. It aims to mimic the behaviour of a real user, and as such interacts with the HTML of the application.
+  gem 'selenium-webdriver', '~> 3.0'
 end
 
 group :production do
