@@ -8,15 +8,18 @@ h1 Contacts
       tr
         th Name
         th Email
-        th
+        - if current_user
+          th
 
     tbody
       - @contacts.each do |contact|
         tr
           td = link_to contact.name, contact
           td = contact.email
-          td
-            = link_to 'Edit', edit_contact_path(contact)
-            = link_to 'Destroy', contact, data: { confirm: 'Are you sure?' }, method: :delete
+          - if current_user
+            td
+              = link_to 'Edit', edit_contact_path(contact)
+              = link_to 'Destroy', contact, data: { confirm: 'Are you sure?' }, method: :delete
 
-div = link_to 'New Contact', new_contact_path
+- if current_user
+  div = link_to 'New Contact', new_contact_path

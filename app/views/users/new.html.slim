@@ -1,0 +1,23 @@
+h1 New User
+
+= form_for @user do |f|
+  - if @user.errors.any?
+    div class="error_messages"
+      h2 Form is invalid
+      ul
+        - @user.errors.full_messages.each do |message|
+          li = message
+
+  div class="form-inputs"
+    div class="field"
+      = f.label :email
+      = f.text_field :email
+    div id="password"
+      = f.label :password
+      = f.password_field :password
+    div id="password_confirmation"
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+
+  div class="form-actions"
+    = f.submit 'Create User', class: 'btn btn-primary'

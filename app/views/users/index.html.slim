@@ -1,0 +1,11 @@
+h1 Users
+
+table
+  tr
+    th Email
+  - @users.each do |user|
+    tr
+      td = user.email
+
+div
+  = link_to 'New User', new_user_path
