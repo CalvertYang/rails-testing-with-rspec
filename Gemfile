@@ -48,6 +48,12 @@ group :development, :test do
 
   # factory_girl_rails provides integration between factory_girl and rails 3
   gem 'factory_girl_rails', '~> 4.7'
+
+  # Guard::RSpec automatically run your specs (much like autotest).
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
+
+  # rspec command for spring
+  gem 'spring-commands-rspec', '~> 1.0', '>= 1.0.4'
 end
 
 group :development do
@@ -80,6 +86,9 @@ group :test do
 
   # WebDriver is a tool for writing automated tests of websites. It aims to mimic the behaviour of a real user, and as such interacts with the HTML of the application.
   gem 'selenium-webdriver', '~> 3.0'
+
+  # Making tests easy on the fingers and eyes
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
 end
 
 group :production do
